@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <!-- Circular Dark Background -->
+  <rect width="64" height="64" rx="14" fill="#111827" />
+  
+  <!-- Stylized Geometric Vector Continent of Antarctica -->
+  <path d="M33 13 C38 13.5, 43 16, 46 19 C48 21.5, 50 25, 48 29 C46.5 32, 49 35, 52 38 C54 41, 51 46, 47 48 C43 50, 39 49, 36 51 C32 53, 27 52, 23 49 C19 46, 16 43, 14 39 C12 34, 15 29, 18 26 C21 23, 23 23, 24 19 C25 15, 29 12.5, 33 13 Z" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5" stroke-linejoin="round" />
+  
+  <!-- Glacial Ice Sheet Contours & Transantarctic Ridge -->
+  <path d="M26 25 Q32 29 38 31 Q44 33 46 38" stroke="#047857" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.9" />
+  <circle cx="34" cy="32" r="2.5" fill="#047857" />
+  <circle cx="34" cy="32" r="4.5" stroke="#047857" stroke-width="0.8" stroke-dasharray="2 2" fill="none" />
+  
+  <!-- South Pole Precision Coordinates Grid -->
+  <path d="M34 8 L34 11 M34 53 L34 56 M8 32 L11 32 M53 32 L56 32" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round" />
+</svg>
