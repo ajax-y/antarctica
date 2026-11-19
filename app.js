@@ -238,6 +238,17 @@ function initDOM() {
     altActionTip: document.getElementById("altActionTip"),
     comparisonChartCanvas: document.getElementById("comparisonChart"),
 
+    // Prevention & Circular Action Hub
+    confirmSwapBtn: document.getElementById("confirmSwapBtn"),
+    swapSuccessAlert: document.getElementById("swapSuccessAlert"),
+    preventedGramsBadge: document.getElementById("preventedGramsBadge"),
+    disposalInstructions: document.getElementById("disposalInstructions"),
+    disposalStepText: document.getElementById("disposalStepText"),
+    showEPRCentersBtn: document.getElementById("showEPRCentersBtn"),
+    eprCentersDrawer: document.getElementById("eprCentersDrawer"),
+    eprBrandName: document.getElementById("eprBrandName"),
+    demandTakeBackLink: document.getElementById("demandTakeBackLink"),
+
     // History & Summary
     sessionLogCount: document.getElementById("sessionLogCount"),
     cumPlasticVal: document.getElementById("cumPlasticVal"),
@@ -734,6 +745,12 @@ function initDOM() {
     }
 
     try {
+      renderPreventionHub(product);
+    } catch (e) {
+      console.warn('renderPreventionHub error:', e);
+    }
+
+    try {
       addToSessionLog(product);
     } catch (e) {
       console.warn('addToSessionLog error:', e);
@@ -744,6 +761,46 @@ function initDOM() {
       const diag = document.getElementById("diagnosticsSection");
       if (diag) diag.scrollIntoView({ behavior: "smooth" });
     } catch (e) {}
+  }
+
+
+  // ==========================================
+  // 8. MODULE: PLASTIC PREVENTION & CIRCULAR ACTION HUB
+  // ==========================================
+  function renderPreventionHub(product) {
+    if (!product) return;
+
+    if (DOM.swapSuccessAlert) {
+      DOM.swapSuccessAlert.classList.add("hidden");
+    }
+
+    if (DOM.eprBrandName) {
+      const cleanBrand = product.brand ? product.brand.split("•")[0].trim() : "Brand Manufacturer";
+      DOM.eprBrandName.textContent = cleanBrand;
+    }
+
+    if (DOM.demandTakeBackLink) {
+      const cleanBrand = product.brand ? product.brand.split("•")[0].trim() : "Brand";
+      const tweetMsg = "Dear @" + cleanBrand.replace(/[^a-zA-Z0-9]/g, "") + ", your packaging on Eco-Scan creates " + product.plasticGrams + "g waste. Under EPR rules, where can we return it in Chennai? #EPR #PlasticFree";
+      DOM.demandTakeBackLink.href = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(tweetMsg);
+    }
+
+    if (DOM.disposalInstructions && DOM.disposalStepText) {
+      const pType = (product.packagingType || "").toLowerCase();
+      if (pType.includes("bottle") || pType.includes("pet")) {
+        DOM.disposalInstructions.textContent = "PET Type-1 Plastic Bottles can be recycled if collected separately:";
+        DOM.disposalStepText.innerHTML = "1. Empty and crush bottle to save volume.<br>2. Drop off at any GCC Dry Waste Collection Center or RVM for redemption credit.";
+      } else if (pType.includes("carton") || pType.includes("paper") || pType.includes("cardboard")) {
+        DOM.disposalInstructions.textContent = "Paperboard packaging has high circular scrap value:";
+        DOM.disposalStepText.innerHTML = "1. Keep completely dry; flatten flat.<br>2. Hand over to local dry raddi / scrap dealer (Kabaadiwala) for cellulose pulp recycling.";
+      } else if (pType.includes("can") || pType.includes("glass") || pType.includes("metal")) {
+        DOM.disposalInstructions.textContent = "Aluminium and glass are 100% infinitely circular:";
+        DOM.disposalStepText.innerHTML = "1. Rinse clean with water.<br>2. 100% accepted by local scrap dealers or return to beverage deposit stations.";
+      } else {
+        DOM.disposalInstructions.textContent = "Multi-layer polymer foil (MLP) cannot be recycled in regular municipal plants:";
+        DOM.disposalStepText.innerHTML = "1. Rinse and dry wrapper thoroughly.<br>2. Stuff into a clean PET bottle to make an <strong>Eco-Brick</strong> for green construction, or hand over to Dry Waste Collection Centers (DWCC).";
+      }
+    }
   }
 
   // ==========================================
@@ -1223,6 +1280,47 @@ function initDOM() {
     DOM.dismissOverrideBtn.addEventListener("click", () => {
       DOM.categoryOverrideModal.classList.add("hidden");
     });
+
+    if (DOM.confirmSwapBtn) {
+      DOM.confirmSwapBtn.addEventListener("click", () => {
+        if (!State.currentProduct) return;
+        const p = State.currentProduct;
+        const alt = p.alternative;
+        const plasticSaved = Math.max(0, p.plasticGrams - (alt.altPlasticGrams || 0));
+
+        if (DOM.swapSuccessAlert && DOM.preventedGramsBadge) {
+          DOM.preventedGramsBadge.textContent = "-" + plasticSaved.toFixed(1) + "g Plastic Diverted!";
+          DOM.swapSuccessAlert.classList.remove("hidden");
+        }
+
+        const prevEntry = {
+          timestamp: new Date().toLocaleTimeString("en-US", { hour12: false, hour: "2-digit", minute: "2-digit", second: "2-digit" }),
+          barcode: p.barcode,
+          name: "[PREVENTED] Eco-Swap: " + alt.title,
+          brand: "Circular Choice",
+          packaging: alt.category,
+          plasticGrams: -(plasticSaved),
+          carbonGrams: -(Math.round(p.carbonGrams * 0.7)),
+          ecoScore: 95,
+          savingsMonthly: alt.monthlySavingsINR || 0
+        };
+
+        State.sessionHistory.unshift(prevEntry);
+        if (State.sessionHistory.length > 25) State.sessionHistory.pop();
+        saveSessionLog();
+        renderSessionLogUI();
+      });
+    }
+
+    if (DOM.showEPRCentersBtn && DOM.eprCentersDrawer) {
+      DOM.showEPRCentersBtn.addEventListener("click", () => {
+        DOM.eprCentersDrawer.classList.toggle("hidden");
+        const isHidden = DOM.eprCentersDrawer.classList.contains("hidden");
+        DOM.showEPRCentersBtn.textContent = isHidden 
+          ? "View Municipal Drop-Off Points ▾" 
+          : "Hide Municipal Drop-Off Points ▴";
+      });
+    }
   }
 
   // ==========================================

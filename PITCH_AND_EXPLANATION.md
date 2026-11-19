@@ -25,6 +25,25 @@ Every day, consumers buy packaged retail items (chips, soaps, shampoos, noodles,
 
 ---
 
+## ⭐ The Novelty Factor (Why Eco-Scan is Not Just a Passive Scorecard)
+
+> **Jury Defense:** *"Other tools only display a passive rating or score. Eco-Scan provides direct prevention, legal accountability, and circular disposal closing the loop from awareness to action."*
+
+1. **Active Waste Prevention Quota Tracker (The Eco-Swap Action):**
+   - Users don't just look at plastic numbers; they click **"✓ LOG PLASTIC PREVENTED"** to record an active swap.
+   - The app logs the negative grams diverted into a permanent session ledger, proving active behavioral change.
+
+2. **Legal EPR (Extended Producer Responsibility) Accountability:**
+   - Under India's **Plastic Waste Management Rules (2022/EPR)**, FMCG brands are legally obligated to take back 100% of their flexible plastic packaging.
+   - Eco-Scan automatically generates a direct **brand accountability demand** with one click (Twitter/X intent), asking the specific manufacturer where citizens in Chennai can drop off their non-recyclable wrappers.
+
+3. **Material-Specific Safe Disposal Protocol:**
+   - For items already purchased, Eco-Scan categorizes the polymer kinetics:
+     - **MLP (Multi-Layer Plastic):** Segregation guide for **Eco-Bricks** (building blocks for green construction) and cement kiln co-processing.
+     - **PET & Cans:** Direct GCC (Greater Chennai Corporation) Dry Waste Collection Centers (DWCC) drop-off directory with zone-by-zone units.
+
+---
+
 ## 2. What the Product Does (Core Capabilities)
 
 When a product is scanned, Eco-Scan instantly renders five key insights:

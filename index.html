@@ -656,6 +656,184 @@
 
     </div>
 
+      <!-- ACTION & PREVENTION ENGINE: NOVELTY & CIRCULAR SOLUTIONS -->
+      <section class="border border-hairline bg-surface rounded-md overflow-hidden">
+        <div class="border-b border-hairline px-3 sm:px-4 py-2.5 sm:py-3 bg-canvas/60 flex flex-wrap items-center justify-between gap-1.5 sm:gap-2">
+          <div class="flex items-center space-x-2">
+            <span class="w-2.5 h-2.5 bg-emerald inline-block rounded-xs"></span>
+            <h2 class="font-mono text-xs font-bold uppercase tracking-wider text-charcoal">Plastic Prevention & Circular Action Hub</h2>
+          </div>
+          <span class="font-mono text-[10px] sm:text-xs text-emerald font-semibold uppercase bg-emerald-light px-2 py-0.5 rounded border border-emerald-border">
+            DIRECT INTERVENTION
+          </span>
+        </div>
+
+        <div class="p-3 sm:p-6 space-y-4 sm:space-y-6">
+          
+          <!-- Top Row: Active Eco-Swap Confirmation (Plastic Prevention Tracker) -->
+          <div class="p-4 sm:p-5 border-2 border-emerald/40 rounded-lg bg-emerald-light/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <div class="space-y-1">
+              <div class="flex items-center space-x-2">
+                <span class="px-2 py-0.5 text-[10px] font-mono font-bold uppercase tracking-wider rounded bg-emerald text-white">ACTIVE PREVENTION</span>
+                <h3 class="text-sm sm:text-base font-bold text-charcoal font-sans">Did you choose the sustainable alternative?</h3>
+              </div>
+              <p class="text-xs text-muted font-sans leading-relaxed">
+                Log your prevention action to officially divert this packaging from municipal landfills and accumulate your Personal Waste Prevention Quota.
+              </p>
+            </div>
+            <div class="flex items-center space-x-2 w-full md:w-auto flex-shrink-0">
+              <button 
+                id="confirmSwapBtn" 
+                class="w-full md:w-auto min-h-[42px] px-5 py-2 bg-emerald hover:bg-emerald/90 text-white font-mono text-xs font-bold rounded shadow-sm transition flex items-center justify-center space-x-2 cursor-pointer"
+              >
+                <span>✓ LOG PLASTIC PREVENTED</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Prevention Tracker Confirmation Badge (Hidden by default, shown when clicked) -->
+          <div id="swapSuccessAlert" class="hidden p-3.5 border border-emerald-border bg-emerald-light rounded text-xs font-sans text-emerald space-y-1">
+            <div class="flex items-center space-x-2 font-bold">
+              <span>🎉 Action Recorded!</span>
+              <span id="preventedGramsBadge" class="font-mono bg-white px-2 py-0.5 rounded border border-emerald-border text-charcoal"></span>
+            </div>
+            <p class="text-[11px] text-emerald/90">
+              Your prevention action has been logged into your persistent session ledger. Kodungaiyur & Perungudi dump yards thank you!
+            </p>
+          </div>
+
+          <!-- 3-Column Prevention Action Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+            
+            <!-- Card 1: Zero-Waste Refill & Store Locator -->
+            <div class="p-4 border border-hairline rounded bg-surface flex flex-col justify-between space-y-3">
+              <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-mono font-bold uppercase text-charcoal bg-canvas px-2 py-0.5 rounded border border-hairline">
+                    LOCAL SOURCING
+                  </span>
+                  <span class="text-sm">📍</span>
+                </div>
+                <h4 class="text-xs sm:text-sm font-bold text-charcoal font-sans">Zero-Waste Refill Hubs</h4>
+                <p class="text-[11px] text-muted font-sans leading-relaxed">
+                  Purchase unpackaged bulk groceries or natural personal care at verified zero-waste dispensers across Chennai & Tamil Nadu:
+                </p>
+                <ul class="text-[11px] text-muted space-y-1 font-mono pt-1">
+                  <li class="flex items-center space-x-1.5">
+                    <span class="text-emerald font-bold">•</span>
+                    <span>Uzhavar Sandhai (Farmers Market)</span>
+                  </li>
+                  <li class="flex items-center space-x-1.5">
+                    <span class="text-emerald font-bold">•</span>
+                    <span>Dhanyam Organic Stores (Mylapore/Adyar)</span>
+                  </li>
+                  <li class="flex items-center space-x-1.5">
+                    <span class="text-emerald font-bold">•</span>
+                    <span>Namma Manjal Pai Refill Points</span>
+                  </li>
+                </ul>
+              </div>
+              <a 
+                href="https://www.google.com/maps/search/organic+refill+bulk+stores+chennai" 
+                target="_blank" 
+                rel="noopener"
+                class="mt-2 block text-center min-h-[36px] py-1.5 px-3 border border-hairline hover:bg-canvas rounded text-xs font-mono font-semibold text-charcoal transition"
+              >
+                Find Nearby Refill Outlets ↗
+              </a>
+            </div>
+
+            <!-- Card 2: Take-Back & Safe Circular Disposal Protocol -->
+            <div class="p-4 border border-hairline rounded bg-surface flex flex-col justify-between space-y-3">
+              <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-mono font-bold uppercase text-charcoal bg-canvas px-2 py-0.5 rounded border border-hairline">
+                    CIRCULAR DISPOSAL
+                  </span>
+                  <span class="text-sm">♻️</span>
+                </div>
+                <h4 class="text-xs sm:text-sm font-bold text-charcoal font-sans">Already Bought? Safe Disposal</h4>
+                <p class="text-[11px] text-muted font-sans leading-relaxed" id="disposalInstructions">
+                  Multi-layer plastic cannot be recycled curbside. Avoid dumping in regular municipal bins:
+                </p>
+                <div class="p-2.5 bg-canvas border border-hairline rounded text-[11px] space-y-1 font-sans">
+                  <span class="font-bold text-charcoal font-mono block text-[10px]">RECOMMENDED STEPS:</span>
+                  <p class="text-muted text-[11px]" id="disposalStepText">
+                    1. Rinse and dry wrapper thoroughly.<br>
+                    2. Stuff into a clean PET bottle to make an <strong>Eco-Brick</strong> for green construction, or hand over to Dry Waste Collection Centers (DWCC).
+                  </p>
+                </div>
+              </div>
+              <button 
+                type="button"
+                id="showEPRCentersBtn" 
+                class="mt-2 block w-full text-center min-h-[36px] py-1.5 px-3 border border-hairline hover:bg-canvas rounded text-xs font-mono font-semibold text-charcoal transition cursor-pointer"
+              >
+                View Municipal Drop-Off Points ▾
+              </button>
+            </div>
+
+            <!-- Card 3: EPR Manufacturer Accountability & Action -->
+            <div class="p-4 border border-hairline rounded bg-surface flex flex-col justify-between space-y-3">
+              <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-mono font-bold uppercase text-crimson bg-crimson-light px-2 py-0.5 rounded border border-crimson-border">
+                    LEGAL ACCOUNTABILITY
+                  </span>
+                  <span class="text-sm">⚖️</span>
+                </div>
+                <h4 class="text-xs sm:text-sm font-bold text-charcoal font-sans">EPR Brand Take-Back</h4>
+                <p class="text-[11px] text-muted font-sans leading-relaxed">
+                  Under India's <strong>Plastic Waste Management Rules (EPR)</strong>, brand owners must take back 100% of flexible packaging waste.
+                </p>
+                <div class="p-2 bg-canvas border border-hairline rounded text-[11px] font-mono space-y-0.5">
+                  <div class="flex justify-between">
+                    <span class="text-muted">Brand Owner:</span>
+                    <span id="eprBrandName" class="font-bold text-charcoal truncate max-w-[120px]">--</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-muted">Target EPR:</span>
+                    <span class="text-crimson font-bold">100% Collection Mandated</span>
+                  </div>
+                </div>
+              </div>
+              <a 
+                id="demandTakeBackLink"
+                href="#" 
+                target="_blank" 
+                rel="noopener"
+                class="mt-2 block text-center min-h-[36px] py-1.5 px-3 bg-charcoal hover:bg-black text-white rounded text-xs font-mono font-semibold transition"
+              >
+                Demand Brand Take-Back (X / Tweet) ↗
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Collapsible Municipal DWCC Drop-off points in Chennai & TN -->
+          <div id="eprCentersDrawer" class="hidden p-3.5 sm:p-4 border border-hairline rounded bg-canvas/60 space-y-2 text-xs">
+            <span class="font-mono font-bold uppercase text-charcoal text-[11px] block">
+              Greater Chennai Corporation (GCC) Dry Waste Collection Centers (DWCC)
+            </span>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 text-[11px] font-sans text-muted">
+              <div class="p-2 bg-surface border border-hairline rounded">
+                <strong class="text-charcoal block">Zone 5 (Royapuram):</strong>
+                Old Washermanpet DWCC Unit. Accepts clean dry flexible plastics and cartons.
+              </div>
+              <div class="p-2 bg-surface border border-hairline rounded">
+                <strong class="text-charcoal block">Zone 9 (Teynampet):</strong>
+                Alwarpet / Mylapore Segregation Shed. Dispatches plastic laminates to Dalmia Cement kilns.
+              </div>
+              <div class="p-2 bg-surface border border-hairline rounded">
+                <strong class="text-charcoal block">Zone 13 (Adyar):</strong>
+                Besant Nagar Dry Waste Facility. Dedicated recycling redemption for paper & metal.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
     <!-- MODULE F: SESSION SCAN HISTORY LOG & TABULAR DATA -->
     <section class="border border-hairline bg-surface rounded-md overflow-hidden">
       <div class="border-b border-hairline px-3 sm:px-4 py-2.5 sm:py-3 bg-canvas/60 flex flex-wrap items-center justify-between gap-1.5 sm:gap-2">
@@ -719,6 +897,6 @@
   </footer>
 
   <!-- Application Script -->
-  <script src="app.js?v=1795062363"></script>
+  <script src="app.js?v=1795066533"></script>
 </body>
 </html>
