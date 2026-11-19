@@ -844,54 +844,54 @@ function initDOM() {
     }
 
     State.chartInstance = new Chart(ctx, {
-      type: 'bar',
+      type: "bar",
       data: {
-        labels: ['Plastic Mass (grams)', 'Carbon Footprint (g CO2e)'],
+        labels: ["Plastic Waste (grams)", "Carbon Footprint (g CO2e)"],
         datasets: [
           {
-            label: 'Scanned Product',
+            label: "Current Product",
             data: scannedData,
-            backgroundColor: '#B91C1C', // Crimson Brick
-            borderColor: '#991B1B',
-            borderWidth: 1,
-            borderRadius: 3,
-            barPercentage: 0.7,
-            categoryPercentage: 0.8
+            backgroundColor: "#EF4444",
+            borderColor: "#DC2626",
+            borderWidth: 1.5,
+            borderRadius: 4,
+            barPercentage: 0.65,
+            categoryPercentage: 0.75
           },
           {
-            label: 'Eco Alternative',
+            label: "Eco Alternative",
             data: altData,
-            backgroundColor: '#047857', // Forest Emerald
-            borderColor: '#065F46',
-            borderWidth: 1,
-            borderRadius: 3,
-            barPercentage: 0.7,
-            categoryPercentage: 0.8
+            backgroundColor: "#10B981",
+            borderColor: "#059669",
+            borderWidth: 1.5,
+            borderRadius: 4,
+            barPercentage: 0.65,
+            categoryPercentage: 0.75
           }
         ]
       },
       options: {
-        indexAxis: 'y', // Clean Minimal Horizontal Bar Chart
+        indexAxis: "y",
         responsive: true,
         maintainAspectRatio: false,
         layout: {
-          padding: { top: 10, bottom: 10, left: 5, right: 20 }
+          padding: { top: 10, bottom: 10, left: 5, right: 25 }
         },
         plugins: {
           legend: {
             display: false
           },
           tooltip: {
-            backgroundColor: '#111827',
-            titleFont: { family: 'JetBrains Mono', size: 11 },
-            bodyFont: { family: 'JetBrains Mono', size: 12 },
-            padding: 10,
-            cornerRadius: 4,
+            backgroundColor: "#1F2937",
+            titleFont: { family: "Inter", size: 12, weight: "600" },
+            bodyFont: { family: "JetBrains Mono", size: 12 },
+            padding: 12,
+            cornerRadius: 6,
             callbacks: {
               label: function (context) {
-                const label = context.dataset.label || '';
+                const label = context.dataset.label || "";
                 const val = context.raw;
-                const unit = context.dataIndex === 0 ? 'g' : 'g CO2e';
+                const unit = context.dataIndex === 0 ? "g plastic" : "g CO2e emissions";
                 return ` ${label}: ${val} ${unit}`;
               }
             }
@@ -900,12 +900,12 @@ function initDOM() {
         scales: {
           x: {
             grid: {
-              color: '#F3F4F6',
+              color: "#F3F4F6",
               drawBorder: false
             },
             ticks: {
-              font: { family: 'JetBrains Mono', size: 10 },
-              color: '#6B7280'
+              font: { family: "JetBrains Mono", size: 11 },
+              color: "#6B7280"
             }
           },
           y: {
@@ -914,8 +914,8 @@ function initDOM() {
               drawBorder: false
             },
             ticks: {
-              font: { family: 'JetBrains Mono', size: 11, weight: '600' },
-              color: '#111827',
+              font: { family: "Inter", size: 12, weight: "600" },
+              color: "#111827",
               autoSkip: false
             }
           }
